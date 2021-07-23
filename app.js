@@ -28,11 +28,29 @@ maxNum.textContent = max;
 //Listen for guesses
 guessBtn.addEventListener('click', function(){
     let guess = parseInt(guessInput.value);
+
+
     
     //validate
     if (isNaN(guess) || guess < min || guess > max ) {
         setMessage(`Please enter a number ${min} and ${max}`, 'red');
     }
+
+    //check IF WON
+   if(guess ===winningNum){
+    //Disable input
+    guessInput.disabled=true;
+
+    //change border color
+    guessInput.style.borderColor = 'green';
+
+    //set message
+    setMessage(`${winningNum} is correct, YOU WIN!`, 'green')
+
+   } else {
+
+   }
+
 });
     function setMessage(msg, color) {
         message.style.color = color;
